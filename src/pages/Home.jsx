@@ -63,6 +63,9 @@ const Home = () => {
         author : book.author,
         publishYear : book.publishYear,
         read : !book.read })
+        .then((response) => {
+          setBooks(response.books);
+        })
         .catch((error) => {
           console.log(error);
         })
@@ -164,10 +167,10 @@ const Home = () => {
                         </td>
                         <td className='border border-slate-700 rounded-md text-center'>
                         <div
-                    className={`px-2 py-1 rounded-md ${book.read==="true" ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`}
+                    className={`px-2 py-1 rounded-md ${book.read=="true" ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`}
                     onClick={() => toggleRead(book._id)}
                   >
-                        {book.read === "true" ? 'Yes' : 'No'}
+                        {book.read == "true" ? 'Yes' : 'No'}
                         </div>
                         </td>
                     </tr>
