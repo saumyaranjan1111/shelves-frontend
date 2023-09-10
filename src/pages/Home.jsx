@@ -68,7 +68,10 @@ const Home = () => {
         })
         
         // Toggle the "read" property when the book matches the bookId
-        return { ...book, read: !book.read };
+        if(book.read == "true") 
+        return { ...book, read: "false" }
+        else
+        return { ...book, read: "true" }
       }
       return book;
     });
