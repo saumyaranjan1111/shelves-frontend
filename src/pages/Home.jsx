@@ -63,9 +63,6 @@ const Home = () => {
         author : book.author,
         publishYear : book.publishYear,
         read : !book.read })
-        .then((response) => {
-          setBooks(response.books);
-        })
         .catch((error) => {
           console.log(error);
         })
