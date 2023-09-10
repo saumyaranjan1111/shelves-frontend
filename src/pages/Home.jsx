@@ -57,6 +57,16 @@ const Home = () => {
   const toggleRead = (bookId) => {
     const updatedBooks = books.map((book) => {
       if (book._id === bookId) {
+
+        axios.put(`https://shelvesbackend.onrender.com/books/${bookId}`, { 
+        title : book.title,
+        author : book.author,
+        publishYear : book.publishYear,
+        read : !book.read })
+        .catch((error) => {
+          console.log(error);
+        })
+        
         // Toggle the "read" property when the book matches the bookId
         return { ...book, read: !book.read };
       }
